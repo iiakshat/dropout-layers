@@ -43,3 +43,19 @@ class Dropout:
         
         # Apply mask
         return x * self.mask
+    
+    def backward(self, d_out):
+        """
+        Backward pass of dropout.
+        
+        Args:
+            d_out: Gradient of the output tensor
+            
+        Returns:
+            Gradient of the input tensor
+        """
+
+        if not self.training:
+            return d_out
+            
+        return d_out * self.mask
