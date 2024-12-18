@@ -59,3 +59,15 @@ class Dropout:
             return d_out
             
         return d_out * self.mask
+    
+    def train(self):
+        """
+        Set the layer to training mode.
+        """
+        self.training = True
+        
+    def eval(self):
+        """
+        Set the layer to evaluation mode.
+        """
+        self.training = False
