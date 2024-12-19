@@ -71,3 +71,26 @@ class Dropout:
         Set the layer to evaluation mode.
         """
         self.training = False
+
+    @staticmethod
+    def calc_prob(x, p, verbose=True):
+        """
+        Calculate the actual dropout rate.
+        
+        Args:
+            x: Input tensor
+            p: Dropout probability
+            
+        Returns:
+            Actual dropout rate
+        """
+        dropout = Dropout(p=p)
+        output = dropout.forward(x)
+        actual_rate = 1 - (np.count_nonzero(output) / np.prod(x.shape))
+        
+        if verbose:
+            print(f"Input values: {x} {x.shape}")
+            print(f"Output values: {output} {output.shape}")
+            print(f"\nDropout probability, p = {p:.1f}\nActual dropout rate = {actual_rate:.2f}")
+
+        return actual_rate
