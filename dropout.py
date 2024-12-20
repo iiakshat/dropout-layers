@@ -94,3 +94,7 @@ class Dropout:
             print(f"\nDropout probability, p = {p:.1f}\nActual dropout rate = {actual_rate:.2f}")
 
         return actual_rate
+
+if __name__ == "__main__":
+    x = np.ones((1, 10))
+    Dropout.calc_prob(x, 0.5)
