@@ -9,7 +9,7 @@ class SimpleNeuralNetwork:
         self.b2 = np.zeros(output_size)
         
         if dropout_rate:
-            self.dropout1 = Dropout(p=dropout_rate)
+            self.dropout = Dropout(p=dropout_rate)
 
     def relu(self, x):
         return np.maximum(0, x)
