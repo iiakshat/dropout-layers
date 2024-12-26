@@ -3,6 +3,15 @@ from dropout import Dropout
 
 class SimpleNeuralNetwork:
     def __init__(self, input_size, output_size, hidden_size=128, dropout_rate=None):
+        """
+        Initialize a SimpleNeuralNetwork.
+        
+        Args:
+            input_size (int): Number of input neurons
+            output_size (int): Number of output neurons
+            hidden_size (int): Number of hidden neurons (default=128)
+            dropout_rate (float): Dropout probability (default=None)
+        """
         self.W1 = np.random.randn(input_size, hidden_size) * np.sqrt(2.0 / input_size)
         self.b1 = np.zeros(hidden_size)
         self.W2 = np.random.randn(hidden_size, output_size) * np.sqrt(2.0 / hidden_size)
