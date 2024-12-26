@@ -24,5 +24,14 @@ class SimpleNeuralNetwork:
         return np.maximum(0, x)
         
     def softmax(self, x):
+        """
+        Computes the softmax activation function.
+        
+        Args:
+            x (numpy array): Input array
+            
+        Returns:
+            numpy array: Output array
+        """
         exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))
         return exp_x / np.sum(exp_x, axis=1, keepdims=True)
