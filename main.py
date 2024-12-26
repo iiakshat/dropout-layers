@@ -21,6 +21,15 @@ class SimpleNeuralNetwork:
             self.dropout = Dropout(p=dropout_rate)
 
     def relu(self, x):
+        """
+        Computes the ReLU activation function.
+        
+        Args:
+            x (numpy array): Input array
+            
+        Returns:
+            numpy array: Output array
+        """
         return np.maximum(0, x)
         
     def softmax(self, x):
