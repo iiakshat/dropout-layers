@@ -44,3 +44,18 @@ class SimpleNeuralNetwork:
         """
         exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))
         return exp_x / np.sum(exp_x, axis=1, keepdims=True)
+    
+    def forward(self, X, training=True):
+        self.z1 = np.dot(X, self.W1) + self.b1
+        self.a1 = self.relu(self.z1)
+        
+        if training:
+            self.dropout.train()
+        else:
+            self.dropout.eval()
+
+        self.a1 = self.dropout.forward(self.a1)
+        self.z2 = np.dot(self.a1, self.W2) + self.b2
+        self.a2 = self.softmax(self.z2)
+
+        return self.a2
