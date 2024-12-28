@@ -46,6 +46,16 @@ class SimpleNeuralNetwork:
         return exp_x / np.sum(exp_x, axis=1, keepdims=True)
     
     def forward(self, X, training=True):
+        """
+        Computes the forward pass of the network.
+        
+        Args:
+            X (numpy array): Input array
+            training (bool): Whether the network is in training mode (default=True)
+            
+        Returns:
+            numpy array: Output array
+        """
         self.z1 = np.dot(X, self.W1) + self.b1
         self.a1 = self.relu(self.z1)
         
