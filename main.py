@@ -69,3 +69,6 @@ class SimpleNeuralNetwork:
         self.a2 = self.softmax(self.z2)
 
         return self.a2
+    
+    def predict(self, X):
+        return np.argmax(self.forward(X, training=False), axis=1)
