@@ -71,4 +71,13 @@ class SimpleNeuralNetwork:
         return self.a2
     
     def predict(self, X):
+        """
+        Predict the output class for the given input data.
+
+        Args:
+            X (numpy array): Input data array.
+
+        Returns:
+            numpy array: Indices of the predicted output classes.
+        """
         return np.argmax(self.forward(X, training=False), axis=1)
