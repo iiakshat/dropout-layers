@@ -81,3 +81,17 @@ class SimpleNeuralNetwork:
             numpy array: Indices of the predicted output classes.
         """
         return np.argmax(self.forward(X, training=False), axis=1)
+
+def load_mnist_sample(n_sample_size=1000, n_classes=10):
+    """
+    Generates a random sample of MNIST-like data.
+
+    Returns:
+        tuple: A tuple containing:
+            - X (numpy array): An array of shape (1000, 28*28) representing the input data.
+            - y (numpy array): An array of shape (1000,) representing the class labels.
+    """
+    X = np.random.randn(n_sample_size, 28*28) * 0.1
+    y = np.random.randint(0, n_classes, n_sample_size)
+    
+    return X, y
