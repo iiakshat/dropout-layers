@@ -82,7 +82,7 @@ class SimpleNeuralNetwork:
         """
         return np.argmax(self.forward(X, training=False), axis=1)
 
-def load_mnist_sample(n_sample_size=1000, n_classes=10):
+def load_data(n_sample_size=1000, n_classes=10):
     """
     Generates a random sample of MNIST-like data.
 
