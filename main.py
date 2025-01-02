@@ -95,3 +95,9 @@ def load_data(n_sample_size=1000, n_classes=10):
     y = np.random.randint(0, n_classes, n_sample_size)
     
     return X, y
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
