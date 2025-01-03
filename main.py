@@ -97,7 +97,11 @@ def load_data(n_sample_size=1000, n_classes=10):
     return X, y
 
 def main():
-    pass
+    X, y = load_data()
+    input_size = 28*28
+    hidden_size = 128
+    output_size = 10
+    
 
 if __name__ == "__main__":
     main()
