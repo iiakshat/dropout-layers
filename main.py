@@ -17,8 +17,10 @@ class SimpleNeuralNetwork:
         self.W2 = np.random.randn(hidden_size, output_size) * np.sqrt(2.0 / hidden_size)
         self.b2 = np.zeros(output_size)
         
-        if dropout_rate:
+        if dropout_rate is not None:
             self.dropout = Dropout(p=dropout_rate)
+        else:
+            self.dropout = None
 
     def relu(self, x):
         """
@@ -101,7 +103,31 @@ def main():
     input_size = 28*28
     hidden_size = 128
     output_size = 10
-    
+    dropout_rates = [0.0, 0.3, 0.5]
+    for dropout_rate in dropout_rates:
+        print(f"\nTraining with dropout rate: {dropout_rate}")
+        
+        # Initialize network
+        network = SimpleNeuralNetwork(input_size, output_size, hidden_size, dropout_rate)
+        
+        # Make predictions
+        predictions = network.predict(X[:5])
+        print("Sample predictions:", predictions)
+        print("Actual labels:", y[:5])
+        
+        # Show effect of dropout
+        # Get activations with dropout (training mode)
+        train_activations = network.forward(X[:1], training=True)
+        print("\nActivation statistics (training mode):")
+        print("Mean activation:", np.mean(train_activations))
+        print("Non-zero activations:", np.mean(train_activations > 0))
+        
+        # Get activations without dropout (evaluation mode)
+        eval_activations = network.forward(X[:1], training=False)
+        print("\nActivation statistics (evaluation mode):")
+        print("Mean activation:", np.mean(eval_activations))
+        print("Non-zero activations:", np.mean(eval_activations > 0))
 
 if __name__ == "__main__":
     main()
+
