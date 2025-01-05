@@ -97,5 +97,6 @@ class Dropout:
 
 if __name__ == "__main__":
     
+    # Test dropout
     x = np.ones((1, 10))
     Dropout.calc_prob(x, 0.5)
