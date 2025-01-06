@@ -1,6 +1,7 @@
 import numpy as np
 from dropout import Dropout
 
+
 class SimpleNeuralNetwork:
     def __init__(self, input_size, output_size, hidden_size=128, dropout_rate=None):
         """
@@ -130,4 +131,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
