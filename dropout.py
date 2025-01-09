@@ -95,6 +95,7 @@ class Dropout:
 
         return actual_rate
 
+
 if __name__ == "__main__":
     
     # Test dropout
