@@ -116,7 +116,6 @@ def main():
         print("Sample predictions:", predictions)
         print("Actual labels:", y[:5])
         
-        # Show effect of dropout
         # Get activations with dropout (training mode)
         train_activations = network.forward(X[:1], training=True)
         print("\nActivation statistics (training mode):")
