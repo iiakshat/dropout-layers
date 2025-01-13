@@ -1,2 +1,2 @@
 # dropout-layers
-Dropout: A Simple Way to Prevent Neural Networks from Overfitting
+Dropout: A Simple Way to Prevent Neural Networks from Overfitting.
